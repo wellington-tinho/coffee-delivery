@@ -1,13 +1,5 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Roboto:wght@400;700&display=swap');
 
-:root {
-  --brand-purple-dark: #4B2995;
-  --brand-purple: #8047F8;
-  --brand-purple-light: #EBE5F9;
-  --brand-yellow-dark: #C47F17;
-  --brand-yellow: #DBAC2C;
-  --brand-yellow-light: #F1E9C9;
-}
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Roboto:wght@400;700&display=swap');
