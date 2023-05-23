@@ -1,24 +1,17 @@
-// eslint-disable-next-line camelcase
-// import { Baloo_2 } from '@next/font/google'
 import Image from 'next/image'
-
-// const baloo2 = Baloo_2({
-//   weight: ['800'],
-// })
+import landingImagem from 'public/assets/imagemLPage.svg'
 
 export default function Main() {
   return (
-    <div className="bg-[url('/assets/background.svg')] bg-repeat bg-center  h-full ">
+    <div className="bg-[url('/assets/background.svg')] bg-repeat bg-center h-full px-40 border flex justify-center gap-14 pt-24">
       <div>
-        <div>
-          <h1
-          // className={`${baloo2.className} font-Baloo2 text-5xl font-extrabold`}
-          >
+        <div className="space-y-4 w-[558px] border">
+          <h1 className="font-baloo text-5xl font-extrabold ">
             Encontre o café perfeito para qualquer hora do dia
           </h1>
-          <h2>
+          <h2 className="font-roboto text-xl font-medium">
             Com o Coffee Delivery você recebe seu café onde estiver, a qualquer
-            hora.
+            hora
           </h2>
         </div>
         <div>
@@ -45,7 +38,9 @@ export default function Main() {
           </ul>
         </div>
       </div>
-      <div> {/*  Image */}</div>
+      <div>
+        <Image src={landingImagem} alt="Copo de café escrito coffee delivery" />
+      </div>
     </div>
   )
 }

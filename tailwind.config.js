@@ -31,6 +31,10 @@ module.exports = {
         'brand-yellow': '#DBAC2C',
         'brand-yellow-light': '#F1E9C9',
       },
+      fontFamily: {
+        sans: 'var(--font-roboto)',
+        baloo: 'var(--font-baloo)',
+      },
     },
     plugins: [
       plugin(function ({ addVariant }) {
