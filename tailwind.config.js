@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const plugin = require('tailwindcss/plugin')
+
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -36,10 +36,5 @@ module.exports = {
         baloo: 'var(--font-baloo)',
       },
     },
-    plugins: [
-      plugin(function ({ addVariant }) {
-        addVariant('third', '&:nth-child(3)')
-      }),
-    ],
   },
 }
