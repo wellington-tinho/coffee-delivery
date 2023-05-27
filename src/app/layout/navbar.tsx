@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import MapPinFill from 'public/assets/icons/map-pin-fill.svg'
 import LogoCoffeeDelivery from 'public/assets/logo.svg'
+import MapPin from '../../../public/assets/icons/Map'
 import ShoppingCartFill from '../../../public/assets/icons/shopping-cart-fill'
 
 export default function Navbar() {
@@ -13,7 +13,7 @@ export default function Navbar() {
         </a>
         <div className="flex gap-3">
           <span className="flex gap-2 items-center font-Roboto text-sm rounded-lg px-2 py-[10px] bg-brand-purple-light text-brand-purple-dark border hover:border-brand-purple duration-300">
-            <Image src={MapPinFill} alt="icon place" />
+            <MapPin className="w-5 h-5" />
             Picos, PI
           </span>
           <Link

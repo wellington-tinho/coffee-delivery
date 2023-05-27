@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body
         className={`${roboto.variable} ${baloo.variable} font-sans h-screen`}
       >
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col h-full bg-base-background">
           <Navbar />
           <Main />
           {children}
