@@ -10,8 +10,7 @@ export default function Main() {
     <div
       className="bg-[url('/assets/background.svg')] 
       bg-no-repeat bg-center bg-contain pb-20 px-10
-      h-full border-2 border-fuchsia-700
-      flex gap-14 justify-center items-center
+      h-full flex gap-14 justify-center items-center
       "
     >
       <div className="flex flex-col gap-16">
