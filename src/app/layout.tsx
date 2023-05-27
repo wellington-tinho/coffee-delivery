@@ -1,7 +1,6 @@
 import { Baloo_2 as Baloo, Roboto } from 'next/font/google'
 import { ReactNode } from 'react'
 import './globals.css'
-import Main from './layout/main'
 import Navbar from './layout/navbar'
 
 const roboto = Roboto({
@@ -28,7 +27,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       >
         <div className="flex flex-col h-full bg-base-background">
           <Navbar />
-          <Main />
+          {/* <Main /> */}
           {children}
         </div>
       </body>

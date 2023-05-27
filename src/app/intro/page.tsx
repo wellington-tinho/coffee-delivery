@@ -5,7 +5,7 @@ import Package from '../../../public/assets/icons/Package'
 import ShoppingCart from '../../../public/assets/icons/ShoppingCart'
 import Timer from '../../../public/assets/icons/Timer'
 
-export default function Main() {
+export default function Intro() {
   return (
     <div
       className="bg-[url('/assets/background.svg')] 
