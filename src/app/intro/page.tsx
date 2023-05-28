@@ -11,6 +11,7 @@ export default function Intro() {
       className="bg-[url('/assets/background.svg')] 
       bg-contain pb-20 object-cover h-full 
       flex gap-14 justify-center items-center
+      px-40 w-full xl:px-6 
       "
     >
       <div className="flex flex-col gap-16">
@@ -23,7 +24,7 @@ export default function Intro() {
             hora
           </h2>
         </div>
-        <ul className="border grid grid-cols-2 gap-y-5 gap-x-10">
+        <ul className="grid grid-cols-2 gap-y-5 gap-x-10">
           <li className="flex gap-2 items-center">
             <div className="bg-brand-yellow-dark rounded-full text-white p-2 w-8 h-8 ">
               <ShoppingCart className="w-4 h-4" />
