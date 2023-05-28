@@ -9,8 +9,8 @@ export default function Intro() {
   return (
     <div
       className="bg-[url('/assets/background.svg')] 
-      bg-no-repeat bg-center bg-contain pb-20 xl:px-20
-      h-full flex gap-14 justify-center items-center
+      bg-contain pb-20 object-cover h-full 
+      flex gap-14 justify-center items-center
       "
     >
       <div className="flex flex-col gap-16">
@@ -18,7 +18,7 @@ export default function Intro() {
           <h1 className="font-baloo text-5xl font-extrabold xl:text-7xl">
             Encontre o café perfeito para qualquer hora do dia
           </h1>
-          <h2 className="font-roboto text-xl font-medium xl:text-3xl">
+          <h2 className="  text-xl font-medium xl:text-3xl">
             Com o Coffee Delivery você recebe seu café onde estiver, a qualquer
             hora
           </h2>
@@ -28,7 +28,7 @@ export default function Intro() {
             <div className="bg-brand-yellow-dark rounded-full text-white p-2 w-8 h-8 ">
               <ShoppingCart className="w-4 h-4" />
             </div>
-            <span className="font-roboto text-base font-normal xl:text-xl">
+            <span className="  text-base font-normal xl:text-xl">
               Compra simples e segura
             </span>
           </li>
@@ -37,7 +37,7 @@ export default function Intro() {
             <div className="bg-base-text rounded-full text-white p-2 w-8 h-8 ">
               <Package className="w-4 h-4" />
             </div>
-            <span className="font-roboto text-base font-normal xl:text-xl">
+            <span className="  text-base font-normal xl:text-xl">
               Embalagem mantém o café intacto
             </span>
           </li>
@@ -45,7 +45,7 @@ export default function Intro() {
             <div className="bg-brand-yellow rounded-full text-white p-2 w-8 h-8 ">
               <Timer className="w-4 h-4" />
             </div>
-            <span className="font-roboto text-base font-normal xl:text-xl">
+            <span className="  text-base font-normal xl:text-xl">
               Entrega rápida e rastreada
             </span>
           </li>
@@ -54,7 +54,7 @@ export default function Intro() {
             <div className="bg-brand-purple rounded-full text-white p-2 w-8 h-8 ">
               <CoffeeFill className="w-4 h-4 " />
             </div>
-            <span className="font-roboto text-base font-normal xl:text-lg">
+            <span className="  text-base font-normal xl:text-lg">
               O café chega fresquinho até você
             </span>
           </li>

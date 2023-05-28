@@ -21,13 +21,14 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning={true}>
       <body
-        className={`${roboto.variable} ${baloo.variable} font-sans h-screen`}
+        className={`${roboto.variable} ${baloo.variable} font-sans h-screen `}
       >
         <div className="flex flex-col h-full bg-base-background">
+          {/* // bg-[linear-gradient(to_top_bottom,rgba(255,255,255,0),rgba(255,255,255,1)),url('/assets/background.svg')] */}
+
           <Navbar />
-          {/* <Main /> */}
           {children}
         </div>
       </body>
