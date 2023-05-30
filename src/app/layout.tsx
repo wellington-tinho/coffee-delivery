@@ -1,7 +1,6 @@
 import { Baloo_2 as Baloo, Roboto } from 'next/font/google'
 import { ReactNode } from 'react'
 import './globals.css'
-import Navbar from './layout/navbar'
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -24,7 +23,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" suppressHydrationWarning={true}>
       <body className={`${roboto.variable} ${baloo.variable} font-sans  `}>
         <div className="flex flex-col h-full bg-base-background">
-          <Navbar />
           {children}
         </div>
       </body>

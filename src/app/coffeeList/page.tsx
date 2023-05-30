@@ -8,7 +8,7 @@ import sum from '../../../public/assets/icons/sum.svg'
 
 export default function CoffeeList() {
   return (
-    <div className="px-28 py-8">
+    <div className="px-28 py-8 bg-base-background">
       <p className="text-3xl font-baloo mb-12">Nossos Cafés</p>
 
       <ul className="flex flex-wrap gap-8 gap-y-12 w-fit content-center items-center justify-center">
@@ -77,13 +77,11 @@ export default function CoffeeList() {
                       className="cursor-pointer h-3"
                     />
                   </div>
-                  <div className="bg-brand-purple-dark rounded-lg w-8 h-8 flex items-center justify-center">
-                    <ShoppingCart
-                      className="text-white"
-                      width={20}
-                      height={20}
-                    />
-                  </div>
+                  <ShoppingCart
+                    className="text-white bg-brand-purple-dark rounded-lg w-8 h-8 flex items-center justify-center cursor-pointer p-1"
+                    width={20}
+                    height={20}
+                  />
                 </div>
               </div>
             </div>
