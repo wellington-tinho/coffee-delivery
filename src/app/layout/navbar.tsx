@@ -6,7 +6,7 @@ import ShoppingCartFill from '../../../public/assets/icons/shopping-cart-fill'
 
 export default function Navbar() {
   return (
-    <nav className="py-8 px-40">
+    <nav className="py-8 px-40 h-24">
       <div className="flex justify-between  content-between">
         <a className="" href="#">
           <Image src={LogoCoffeeDelivery} alt="logo" width={100} height={100} />
