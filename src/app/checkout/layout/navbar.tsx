@@ -8,9 +8,9 @@ export default function Navbar() {
   return (
     <nav className="py-8 px-40 h-24">
       <div className="flex justify-between  content-between">
-        <a className="" href="#">
+        <Link href="/">
           <Image src={LogoCoffeeDelivery} alt="logo" width={100} height={100} />
-        </a>
+        </Link>
         <div className="flex gap-3">
           <span
             className="flex gap-2 items-center text-sm rounded-lg 
