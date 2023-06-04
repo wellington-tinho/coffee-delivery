@@ -6,7 +6,7 @@ interface InputFieldProps {
   placeholder: string
 }
 
-export default function InputField(props: InputFieldProps) {
+export function InputField(props: InputFieldProps) {
   return (
     <input
       {...props}

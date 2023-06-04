@@ -1,25 +1,25 @@
 import { Product } from '@/shared/types/Product'
-import Cart from './components/cart'
-import FormBuy from './components/formBuy'
-import FormLocation from './components/formLocation'
+import { Cart } from './components/cart'
+import { FormBuy } from './components/formBuy'
+import { FormLocation } from './components/formLocation'
 import Navbar from './layout/navbar'
 
 const coffees: Product[] = [
   {
     id: 1,
-    name: 'Café da casa',
+    name: 'Expresso Tradicional',
     description: 'Café da casa',
-    price: 5,
+    price: 9.9,
     image: 'assets/images/Type=Expresso.svg',
     types: ['Grão', 'Moído'],
     amount: 1,
   },
   {
     id: 2,
-    name: 'Café da casa2',
+    name: 'Latte',
     description: 'Café da casa',
-    price: 5,
-    image: 'assets/images/Type=Expresso.svg',
+    price: 19.8,
+    image: 'assets/images/Type=Latte.svg',
     types: ['Grão', 'Moído'],
     amount: 1,
   },

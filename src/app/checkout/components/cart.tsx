@@ -4,16 +4,23 @@ import sum from '@/../public/assets/icons/sum.svg'
 import { Product } from '@/shared/types/Product'
 import Image from 'next/image'
 import Box from '../layout/box'
+import { convertCurrencyBRL } from '@/shared/utils/convertCurrencyBRL'
 
-export default function Cart(props: Product[]) {
+export function Cart(props: Product[]) {
+  const delivery = 3.5
+  const totalItens = Object.values(props).reduce(
+    (acc, { price, amount }) => acc + price * amount,
+    0,
+  )
+
   return (
     <Box>
-      <ul className="flex gap-8 flex-col">
+      <ul className="flex gap-6 flex-col">
         {Object.values(props).map(
           ({ id, image, description, name, price, amount }) => {
             return (
               <>
-                <li key={id} className="flex gap-6 items-start py-2">
+                <li key={id} className="flex gap-6 items-start py-2 px-1">
                   <Image src={image} alt={description} width={64} height={64} />
                   <div className="flex flex-1 flex-col gap-2">
                     <p>{name}</p>
@@ -67,6 +74,33 @@ export default function Cart(props: Product[]) {
           },
         )}
       </ul>
+      <div className="space-y-3">
+        <div className="flex justify-between items-center text-sm font-normal text-base-text">
+          <p>Total de itens</p>
+          <span>
+            R${'  '} {convertCurrencyBRL(totalItens)}
+          </span>
+        </div>
+        <div className="flex justify-between items-center text-sm font-normal text-base-text">
+          <p>Entrega</p>
+          <span>
+            R${'  '} {convertCurrencyBRL(delivery)}
+          </span>
+        </div>
+        <div className="flex justify-between items-center text-2xl font-bold text-base-text">
+          <p>Total</p>
+          <span>
+            R${'  '} {convertCurrencyBRL(totalItens + delivery)}
+          </span>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        className="w-full bg-brand-yellow text-base font-bold py-3 rounded-lg text-base-white capitalize mt-3"
+      >
+        CONFIRMAR PEDIDO
+      </button>
     </Box>
   )
 }

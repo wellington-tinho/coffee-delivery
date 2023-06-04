@@ -1,8 +1,8 @@
 import Map from '@/../public/assets/icons/Map'
 import Box from '../layout/box'
-import InputField from './inputField'
+import { InputField } from './inputField'
 
-export default function FormLocation() {
+export function FormLocation() {
   return (
     <Box>
       <div className="flex gap-3 items-start ">
