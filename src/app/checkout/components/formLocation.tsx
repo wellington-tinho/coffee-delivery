@@ -24,6 +24,7 @@ export function FormLocation() {
           type="text"
           id="cep"
           placeholder="CEP"
+          className="max-w-xs"
         />
         <InputField
           label="Rua"
@@ -32,13 +33,14 @@ export function FormLocation() {
           id="rua"
           placeholder="Rua"
         />
-        <div className="grid grid-cols-2 gap-3">
+        <div className="flex gap-3">
           <InputField
             label="Número"
             name="numero"
             type="text"
             id="numero"
             placeholder="Número"
+            className="max-w-xs"
           />
           <InputField
             label="Complemento"
@@ -48,13 +50,14 @@ export function FormLocation() {
             placeholder="Complemento"
           />
         </div>
-        <div className="grid grid-cols-3 gap-3">
+        <div className="flex gap-3">
           <InputField
             label="Bairro"
             name="bairro"
             type="text"
             id="bairro"
             placeholder="Bairro"
+            className="max-w-xs"
           />
           <InputField
             label="Cidade"
@@ -69,6 +72,7 @@ export function FormLocation() {
             type="text"
             id="estado"
             placeholder="UF"
+            className="max-w-[60px]"
           />
         </div>
       </form>

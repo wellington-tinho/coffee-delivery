@@ -9,7 +9,7 @@ export function FormBuy() {
     <Box>
       <div className="flex gap-3 items-start ">
         <CurrencyDollar className="w-6 h-6 text-brand-purple-dark mt-[2px]" />
-        <div className="">
+        <div>
           <p className="text-base-subtitle font-bold text-base ">Pagemento</p>
           <span className="text-base-text font-normal text-sm">
             O pagamento é feito na entrega. Escolha a forma que deseja pagar.

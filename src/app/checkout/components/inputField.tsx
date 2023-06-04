@@ -4,13 +4,15 @@ interface InputFieldProps {
   type: string
   id: string
   placeholder: string
+  className?: string
 }
 
 export function InputField(props: InputFieldProps) {
+  const { className, ...rest } = props
   return (
     <input
-      {...props}
-      className="h-11 w-full bg-base-input border border-base-button p-3 rounded-md"
+      {...rest}
+      className={`h-11 w-full bg-base-input border border-base-button p-3 rounded-md ${className}`}
     />
   )
 }
