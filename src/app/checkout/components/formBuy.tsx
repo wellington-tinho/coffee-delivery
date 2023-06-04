@@ -1,6 +1,8 @@
 import CurrencyDollar from '@/../public/assets/icons/CurrencyDollar'
 import Box from '../layout/box'
 import Bank from '@/../public/assets/icons/Bank'
+import CreditCard from '@/../public/assets/icons/CreditCard'
+import Money from '@/../public/assets/icons/Money'
 
 export function FormBuy() {
   return (
@@ -15,20 +17,20 @@ export function FormBuy() {
         </div>
       </div>
       <div className="grid grid-cols-3 gap-2 mt-4">
-        <div className="flex gap-2 items-center justify-center border-2 py-4 px-5 rounded-lg">
-          <Bank color="#8047F8" fill="#8047F8" />
+        <div className="flex gap-3 items-center justify-center border  bg-base-button py-4 px-5 rounded-lg">
+          <Bank color="#8047F8" />
           <span className="text-base-text font-normal text-sm uppercase">
             cartão de débito
           </span>
         </div>
-        <div className="flex gap-2 items-center justify-center border-2 py-4 px-5 rounded-lg">
-          <Bank />
+        <div className="flex gap-3 items-center justify-center border border-brand-purple bg-brand-purple-light py-4 px-5 rounded-lg">
+          <CreditCard color="#8047F8" />
           <span className="text-base-text font-normal text-sm uppercase">
             cartão de crédito
           </span>
         </div>
-        <div className="flex gap-2 items-center justify-center border-2 py-4 px-5 rounded-lg">
-          <Bank />
+        <div className="flex gap-3 items-center justify-center border bg-base-button py-4 px-5 rounded-lg">
+          <Money color="#8047F8" />
           <span className="text-base-text font-normal text-sm  uppercase">
             dinheiro
           </span>
