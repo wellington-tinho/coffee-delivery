@@ -5,6 +5,7 @@ import { Product } from '@/shared/types/Product'
 import Image from 'next/image'
 import Box from '../layout/box'
 import { convertCurrencyBRL } from '@/shared/utils/convertCurrencyBRL'
+import Link from 'next/link'
 
 export function Cart(props: Product[]) {
   const delivery = 3.5
@@ -15,14 +16,17 @@ export function Cart(props: Product[]) {
 
   return (
     <Box>
-      <ul className="flex gap-6 flex-col">
+      <ul className="flex gap-6 flex-col ">
         {Object.values(props).map(
           ({ id, image, description, name, price, amount }) => {
             return (
               <>
-                <li key={id} className="flex gap-6 items-start py-2 px-1">
+                <li
+                  key={id}
+                  className="flex gap-6 items-start py-2 px-1 flex-wrap"
+                >
                   <Image src={image} alt={description} width={64} height={64} />
-                  <div className="flex flex-1 flex-col gap-2">
+                  <div className="flex flex-1 flex-col gap-2 ">
                     <p>{name}</p>
                     <div className="flex gap-3 items-center">
                       <div
@@ -95,12 +99,14 @@ export function Cart(props: Product[]) {
         </div>
       </div>
 
-      <button
-        type="button"
-        className="w-full bg-brand-yellow text-base font-bold py-3 rounded-lg text-base-white capitalize mt-3"
-      >
-        CONFIRMAR PEDIDO
-      </button>
+      <Link href="/success">
+        <button
+          type="button"
+          className="w-full bg-brand-yellow text-base font-bold py-3 rounded-lg text-base-white capitalize mt-3"
+        >
+          CONFIRMAR PEDIDO
+        </button>
+      </Link>
     </Box>
   )
 }
