@@ -4,7 +4,7 @@ let baseURL
 if (process.env.NODE_ENV !== 'production') {
   baseURL = 'http://localhost:3333/'
 } else {
-  baseURL = 'https://api-coffee-delivery.herokuapp.com/'
+  baseURL = 'https://'
 }
 
 export const api = axios.create({

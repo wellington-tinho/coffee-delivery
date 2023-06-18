@@ -12,7 +12,6 @@ const coffees: Product[] = [
     price: 9.9,
     image: 'assets/images/Type=Expresso.svg',
     types: ['Grão', 'Moído'],
-    amount: 1,
   },
   {
     id: 2,
@@ -21,7 +20,6 @@ const coffees: Product[] = [
     price: 19.8,
     image: 'assets/images/Type=Latte.svg',
     types: ['Grão', 'Moído'],
-    amount: 1,
   },
 ]
 export default function Checkout() {

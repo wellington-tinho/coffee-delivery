@@ -24,7 +24,7 @@
       "id": 6,
       "amount": 10
     }
-  ]
+  ],
   "products": [
       {
         "id": 1,
@@ -32,7 +32,7 @@
         "description": "O tradicional café feito com água quente e grãos moídos",
         "price": 9.9,
         "image": "https://raw.githubusercontent.com/wellington-tinho/coffee-delivery/654811baa3ae56d0d0cda78c7ab9e46caabe10af/public/assets/images/Type%3DExpresso.svg",
-        "types": ["Tradicional"]
+        "types": ["Tradicional"],
       },
       {
         "id": 2,
@@ -40,7 +40,7 @@
         "description": "Expresso diluído, menos intenso que o tradicional",
         "price": 9.9,
         "image": "https://raw.githubusercontent.com/wellington-tinho/coffee-delivery/654811baa3ae56d0d0cda78c7ab9e46caabe10af/public/assets/images/Type%3DAmericano.svg",
-        "types": ["Tradicional"]
+        "types": ["Tradicional"],
       },
       {
         "id": 3,
@@ -48,7 +48,7 @@
         "description": "Café expresso tradicional com espuma cremosa",
         "price": 9.9,
         "image": "https://raw.githubusercontent.com/wellington-tinho/coffee-delivery/654811baa3ae56d0d0cda78c7ab9e46caabe10af/public/assets/images/Type%3DExpresso Cremoso.svg",
-        "types": ["Tradicional"]
+        "types": ["Tradicional"],
       },
       {
         "id": 4,
@@ -56,7 +56,7 @@
         "description": "Bebida preparada com café expresso e cubos de gelo",
         "price": 9.9,
         "image": "https://raw.githubusercontent.com/wellington-tinho/coffee-delivery/654811baa3ae56d0d0cda78c7ab9e46caabe10af/public/assets/images/Type%3DCafé Gelado.svg",
-        "types": ["Tradicional"]
+        "types": ["Tradicional"],
       },
       {
         "id": 5,
@@ -64,7 +64,7 @@
         "description": "Meio a meio de expresso tradicional com leite vaporizado",
         "price": 9.9,
         "image": "https://raw.githubusercontent.com/wellington-tinho/coffee-delivery/654811baa3ae56d0d0cda78c7ab9e46caabe10af/public/assets/images/Type%3DCafé com Leite.svg",
-        "types": ["Tradicional", "com leite"]
+        "types": ["Tradicional", "com leite"],
       },
       {
         "id": 6,
@@ -72,7 +72,7 @@
         "description":"Uma dose de café expresso com o dobro de leite e espuma cremosa",
         "price": 9.9,
         "image": "https://raw.githubusercontent.com/wellington-tinho/coffee-delivery/654811baa3ae56d0d0cda78c7ab9e46caabe10af/public/assets/images/Type%3DLatte.svg",
-        "types": ["Tradicional", "com leite"]
+        "types": ["Tradicional", "com leite"],
       },
       {
         "id": 7,
@@ -80,7 +80,7 @@
         "description": "Bebida com canela feita de doses iguais de café, leite e espuma",
         "price": 9.9,
         "image": "https://raw.githubusercontent.com/wellington-tinho/coffee-delivery/654811baa3ae56d0d0cda78c7ab9e46caabe10af/public/assets/images/Type%3DCapuccino.svg",
-        "types": ["Tradicional", "com leite"]
+        "types": ["Tradicional", "com leite"],
       },
       {
         "id": 8,
@@ -88,7 +88,7 @@
         "description": "Café expresso misturado com um pouco de leite quente e espuma",
         "price": 9.9,
         "image": "https://raw.githubusercontent.com/wellington-tinho/coffee-delivery/654811baa3ae56d0d0cda78c7ab9e46caabe10af/public/assets/images/Type%3DMacchiato.svg",
-        "types": ["Tradicional", "com leite"]
+        "types": ["Tradicional", "com leite"],
       },
       {
         "id": 9,
@@ -96,7 +96,7 @@
         "description": "Café expresso com calda de chocolate, pouco leite e espuma",
         "price": 9.9,
         "image": "https://raw.githubusercontent.com/wellington-tinho/coffee-delivery/654811baa3ae56d0d0cda78c7ab9e46caabe10af/public/assets/images/Type%3DMochaccino.svg",
-        "types": ["Tradicional", "especial"]
+        "types": ["Tradicional", "especial"],
       },
       {
         "id": 10,
@@ -104,7 +104,7 @@
         "description": "Bebida feita com chocolate dissolvido no leite quente e café",
         "price": 9.9,
         "image": "https://raw.githubusercontent.com/wellington-tinho/coffee-delivery/654811baa3ae56d0d0cda78c7ab9e46caabe10af/public/assets/images/Type%3DChocolate Quente.svg",
-        "types": ["Tradicional", "especial"]
+        "types": ["Tradicional", "especial"],
       },
       {
         "id": 11,
@@ -112,7 +112,7 @@
         "description": "Drink gelado de café expresso com rum, creme de leite e hortelã",
         "price": 9.9,
         "image": "https://raw.githubusercontent.com/wellington-tinho/coffee-delivery/654811baa3ae56d0d0cda78c7ab9e46caabe10af/public/assets/images/Type%3DCubano.svg",
-        "types": ["especial", "alcoólico", "gelado"]
+        "types": ["especial", "alcoólico", "gelado"],
       },
       {
         "id": 12,
@@ -120,7 +120,7 @@
         "description": "Bebida adocicada preparada com café e leite de coco",
         "price": 9.9,
         "image": "https://raw.githubusercontent.com/wellington-tinho/coffee-delivery/654811baa3ae56d0d0cda78c7ab9e46caabe10af/public/assets/images/Type%3DHavaiano.svg",
-        "types": ["especial"]
+        "types": ["especial"],
       },
       {
         "id": 13,
@@ -128,7 +128,7 @@
         "description": "Bebida preparada com grãos de café árabe e especiarias",
         "price": 9.9,
         "image": "https://raw.githubusercontent.com/wellington-tinho/coffee-delivery/654811baa3ae56d0d0cda78c7ab9e46caabe10af/public/assets/images/Type%3DÁrabe.svg",
-        "types": ["especial"]
+        "types": ["especial"],
       },
       {
         "id": 14,
@@ -136,7 +136,7 @@
         "description": "Bebida a base de café, uísque irlandês, açúcar e chantilly",
         "price": 9.9,
         "image": "https://raw.githubusercontent.com/wellington-tinho/coffee-delivery/654811baa3ae56d0d0cda78c7ab9e46caabe10af/public/assets/images/Type%3DIrlandês.svg",
-        "types": ["especial", "alcoólico"]
+        "types": ["especial", "alcoólico"],
       }
   ]
 }
