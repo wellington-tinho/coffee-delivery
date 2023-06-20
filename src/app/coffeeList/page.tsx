@@ -18,32 +18,36 @@ export default function CoffeeList() {
   const [coffees, setCoffees] = useState<Product[]>([])
   const [stock, setStock] = useState<StockProps[]>([])
 
-  const getCoffees = useCallback(async () => {
-    const { data } = await api.get<Product[]>('/products')
-    setCoffees(data)
-  }, [])
-
-  const getStock = useCallback(async () => {
-    const { data } = await api.get<StockProps[]>('/stock')
-    setStock(data)
+  const fetchData = useCallback(async () => {
+    try {
+      const [coffeeRes, stockRes] = await Promise.all([
+        api.get<Product[]>('/products'),
+        api.get<StockProps[]>('/stock'),
+      ])
+      setCoffees(coffeeRes.data)
+      setStock(stockRes.data)
+    } catch (error) {
+      console.error(error)
+    }
   }, [])
 
   useEffect(() => {
-    getCoffees()
-    getStock()
-  }, [getCoffees, getStock])
+    fetchData()
+  }, [fetchData])
 
   const {
     state: { items },
     actions: { addItem, removeItem },
   } = useCart()
 
+  console.log('🚀 ~ file: page.tsx:40 ~ CoffeeList ~ items:', items)
   function checkStockItem(id: string, amount: number) {
     const stockItem = stock.find((item) => item.id === id)
     return stockItem ? stockItem.amount >= amount : false
   }
 
   function handleAddItem(item: Product) {
+    console.log('🚀 ~ file: page.tsx:49 ~ handleAddItem ~ item:', item)
     const itemExists = items.find((product) => product.id === item.id)
     if (itemExists) {
       const amount = itemExists.amount + 1
@@ -119,7 +123,7 @@ export default function CoffeeList() {
                 <div className="flex gap-2">
                   <div
                     className="flex justify-center bg-base-button rounded-lg 
-                                gap-[6px] py-2 w-16 h-8 items-center"
+                                gap-[6px] py-2 w-16 h-8 items-center px-1"
                   >
                     <Image
                       src={minus}
@@ -127,14 +131,29 @@ export default function CoffeeList() {
                       width={15}
                       className="cursor-pointer h-3"
                     />
-                    <span className="text-base-text text-base font-normal">
-                      1
+                    <span className="w-full">
+                      <input
+                        type="number"
+                        name="quantity"
+                        id="quantity"
+                        className="text-base-text text-base font-normal w-full text-center first-letter bg-base-button"
+                      />
                     </span>
                     <Image
                       src={sum}
                       alt="icon sum"
                       width={15}
                       className="cursor-pointer h-3"
+                      onClick={() =>
+                        handleAddItem({
+                          id,
+                          image,
+                          name,
+                          price,
+                          description,
+                          types,
+                        })
+                      }
                     />
                   </div>
                   <ShoppingCart
