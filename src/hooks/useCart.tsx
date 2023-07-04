@@ -8,6 +8,7 @@ interface ProductCart extends Product {
 interface ActionProps {
   addItem: (item: ProductCart) => void
   removeItem: (itemID: string) => void
+  updateAmount: (itemID: string, amount: number) => void
 }
 
 interface StoreProps {
@@ -32,6 +33,14 @@ export const useCart = create<StoreProps>((set) => ({
       set((state) => ({
         state: {
           items: state.state.items.filter((item) => item.id !== itemID),
+        },
+      })),
+    updateAmount: (itemID, newAmount) =>
+      set((state) => ({
+        state: {
+          items: state.state.items.map((item) =>
+            item.id === itemID ? { ...item, amount: newAmount } : item,
+          ),
         },
       })),
   },
