@@ -45,31 +45,18 @@ export default function CoffeeList() {
   } = useCart()
 
   function checkStockItem(id: string, amount: number) {
-    console.log('🚀 ~ file: page.tsx:48 ~ checkStockItem ~ amount:', amount)
     const stockItem = stock.find((item) => item.id === id)
-    // return stockItem ? stockItem.amount >= amount : false
-    return true
+    return stockItem ? stockItem.amount >= amount : false
   }
-
-  // console.log('🚀 ~ file: page.tsx:49 ~ handleAddItem ~ item:', item)
-  // const itemExists = items.find((product) => product.id === item.id)
-  // if (itemExists) {
-  //   const amount = itemExists.amount + 1
-  //   if (checkStockItem(item.id, amount)) {
-  //     addItem({ ...item, amount })
-  //   }
-  // } else {
-  //   addItem({ ...item, amount: 1 })
-  // }
 
   function handleAddItemInCart(item: ProductWithAmount) {
     const itemExists = !!items.find((product) => product.id === item.id)
-    if (itemExists) {
-      updateAmount(item.id, item.amount)
-      return
-    }
     if (checkStockItem(item.id, item.amount)) {
-      addItem(item)
+      if (itemExists) {
+        updateAmount(item.id, item.amount)
+      } else {
+        addItem(item)
+      }
     } else {
       alert('Quantidade solicitada fora de estoque')
     }

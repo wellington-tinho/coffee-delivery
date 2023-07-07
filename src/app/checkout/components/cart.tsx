@@ -1,23 +1,45 @@
+'use client'
+
 import Trash from '@/../public/assets//icons/Trash'
 import minus from '@/../public/assets/icons/minus.svg'
 import sum from '@/../public/assets/icons/sum.svg'
-import { Product } from '@/shared/types/Product'
 import Image from 'next/image'
 import Box from '../layout/box'
 import { convertCurrencyBRL } from '@/shared/utils/convertCurrencyBRL'
 import Link from 'next/link'
+import { useCart } from '@/hooks/useCart'
 
-export function Cart(props: Product[]) {
+export function Cart() {
+  const {
+    state: { items },
+    actions: { removeItem, updateAmount },
+  } = useCart()
+
   const delivery = 3.5
-  const totalItens = Object.values(props).reduce(
+  const totalItens = Object.values(items).reduce(
     (acc, { price, amount }) => acc + price * amount,
     0,
   )
 
+  function checkStockItem(id: string, amount: number) {
+    // const stockItem = stock.find((item) => item.id === id)
+    // return stockItem ? stockItem.amount >= amount : false
+    return true
+  }
+
+  function handleUpdateItemInCart(id: string, newAmount: number) {
+    if (checkStockItem(id, newAmount)) {
+      updateAmount(id, newAmount)
+    } else {
+      alert('Quantidade solicitada fora de estoque')
+    }
+  }
+
+  console.log('🚀 ~ file: cart.tsx:15 ~ Cart ~ items:', items)
   return (
     <Box>
       <ul className="flex gap-6 flex-col ">
-        {Object.values(props).map(
+        {Object.values(items).map(
           ({ id, image, description, name, price, amount }) => {
             return (
               <>
@@ -38,15 +60,21 @@ export function Cart(props: Product[]) {
                           alt="icon minus"
                           width={15}
                           className="cursor-pointer h-3"
+                          onClick={() => {
+                            handleUpdateItemInCart(id, -1)
+                          }}
                         />
                         <span className="text-base-text text-base font-normal">
-                          1
+                          {amount}
                         </span>
                         <Image
                           src={sum}
                           alt="icon sum"
                           width={15}
                           className="cursor-pointer h-3"
+                          onClick={() => {
+                            handleUpdateItemInCart(id, 1)
+                          }}
                         />
                       </div>
                       <div
@@ -54,9 +82,12 @@ export function Cart(props: Product[]) {
                                   gap-[6px] py-2 px-3 h-8 items-center"
                       >
                         <Trash className="w-4 h-4 text-brand-purple" />
-                        <span className="text-base-text font-normal text-sm">
+                        <button
+                          className="text-base-text font-normal text-sm"
+                          onClick={() => removeItem(id)}
+                        >
                           Remover
-                        </span>
+                        </button>
                       </div>
                     </div>
                   </div>
