@@ -15,7 +15,7 @@ export function Cart() {
     actions: { removeItem, updateAmount },
   } = useCart()
 
-  const delivery = 3.5
+  const delivery = items.length > 0 ? 3.5 : 0
   const totalItens = Object.values(items).reduce(
     (acc, { price, amount }) => acc + price * amount,
     0,
@@ -28,6 +28,7 @@ export function Cart() {
   }
 
   function handleUpdateItemInCart(id: string, newAmount: number) {
+    if (newAmount < 1) return
     if (checkStockItem(id, newAmount)) {
       updateAmount(id, newAmount)
     } else {
@@ -35,7 +36,6 @@ export function Cart() {
     }
   }
 
-  console.log('🚀 ~ file: cart.tsx:15 ~ Cart ~ items:', items)
   return (
     <Box>
       <ul className="flex gap-6 flex-col ">
@@ -61,7 +61,7 @@ export function Cart() {
                           width={15}
                           className="cursor-pointer h-3"
                           onClick={() => {
-                            handleUpdateItemInCart(id, -1)
+                            handleUpdateItemInCart(id, amount - 1)
                           }}
                         />
                         <span className="text-base-text text-base font-normal">
@@ -73,7 +73,7 @@ export function Cart() {
                           width={15}
                           className="cursor-pointer h-3"
                           onClick={() => {
-                            handleUpdateItemInCart(id, 1)
+                            handleUpdateItemInCart(id, amount + 1)
                           }}
                         />
                       </div>
@@ -130,14 +130,22 @@ export function Cart() {
         </div>
       </div>
 
-      <Link href="/success">
-        <button
-          type="button"
-          className="w-full bg-brand-yellow text-base font-bold py-3 rounded-lg text-base-white capitalize mt-3"
-        >
-          CONFIRMAR PEDIDO
-        </button>
-      </Link>
+      {items.length === 0 ? (
+        <div className="flex justify-center items-center">
+          <p className="w-full text-base font-bold py-3 rounded-lg capitalize mt-3 text-base-text  bg-base-button text-center">
+            Seu carrinho está vazio
+          </p>
+        </div>
+      ) : (
+        <Link href="/success">
+          <button
+            type="button"
+            className="w-full bg-brand-yellow text-base font-bold py-3 rounded-lg text-base-white capitalize mt-3"
+          >
+            CONFIRMAR PEDIDO
+          </button>
+        </Link>
+      )}
     </Box>
   )
 }
