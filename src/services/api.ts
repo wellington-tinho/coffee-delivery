@@ -4,7 +4,7 @@ let baseURL
 if (process.env.NODE_ENV !== 'production') {
   baseURL = 'http://localhost:3333/'
 } else {
-  baseURL = 'https://'
+  baseURL = 'https://json-server-vercel-tau-nine.vercel.app/'
 }
 
 export const api = axios.create({
