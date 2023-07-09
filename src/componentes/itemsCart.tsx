@@ -17,7 +17,7 @@ export function ItemsCart({ items }: { items: ProductCart[] }) {
 
   return (
     <>
-      <ul className="flex gap-6 flex-col ">
+      <ul className="flex gap-6 flex-col overflow-y-scroll">
         {Object.values(items).map(
           ({ id, image, description, name, price, amount }) => {
             return (
@@ -40,13 +40,13 @@ export function ItemsCart({ items }: { items: ProductCart[] }) {
                     </p>
                   </div>
                 </li>
-                <hr className="w-full border-base-border" />
+                <hr className="w-full border-base-border " />
               </>
             )
           },
         )}
       </ul>
-      <div className="space-y-3">
+      <div className="space-y-3 pt-4">
         <div className="flex justify-between items-center text-sm font-normal text-base-text">
           <p>Total de itens</p>
           <span>
