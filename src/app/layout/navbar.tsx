@@ -1,8 +1,7 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import LogoCoffeeDelivery from 'public/assets/logo.svg'
 import MapPin from '../../../public/assets/icons/Map'
-import ShoppingCartFill from '../../../public/assets/icons/shopping-cart-fill'
+import Cart from '@/componentes/cart'
 
 export default function Navbar() {
   return (
@@ -21,13 +20,7 @@ export default function Navbar() {
             <MapPin className="w-5 h-5 xl:w-6 xl:h-6" />
             Picos, PI
           </span>
-          <Link
-            href="/checkout"
-            className="flex
-            bg-brand-yellow-light text-brand-yellow-dark rounded-lg border hover:border-brand-yellow-dark duration-300 p-2"
-          >
-            <ShoppingCartFill className="w-8 h-8" />
-          </Link>
+          <Cart />
         </div>
       </div>
     </nav>
