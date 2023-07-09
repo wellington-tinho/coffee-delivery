@@ -9,7 +9,7 @@ export default function Intro() {
   return (
     <div
       className="bg-[url('/assets/background.svg')] 
-      pb-20
+      pb-20 mt-24
       grid gap-14 justify-center items-center
       grid-cols-2 
       px-40 w-full
