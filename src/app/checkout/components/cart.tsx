@@ -10,6 +10,7 @@ import Link from 'next/link'
 import { useCart } from '@/hooks/useCart'
 import { useCallback, useEffect, useState } from 'react'
 import { api } from '@/services/api'
+import { useFormContext } from 'react-hook-form'
 
 interface StockProps {
   id: string
@@ -18,6 +19,7 @@ interface StockProps {
 
 export function Cart() {
   const [stock, setStock] = useState<StockProps[]>([])
+  const { handleSubmit } = useFormContext()
 
   const fetchData = useCallback(async () => {
     try {
@@ -61,17 +63,19 @@ export function Cart() {
     Object.values(items).forEach(({ id }) => removeItem(id))
   }
 
+  function onSubmit(data, e) {
+    console.log('🚀 ~ file: cart.tsx:67 ~ onSubmit ~ e:', e)
+    console.log('🚀 ~ file: cart.tsx:67 ~ onSubmit ~ data:', data)
+  }
+
   return (
     <Box>
       <ul className="flex gap-6 flex-col ">
         {Object.values(items).map(
           ({ id, image, description, name, price, amount }) => {
             return (
-              <>
-                <li
-                  key={id}
-                  className="flex gap-6 items-start py-2 px-1 flex-wrap"
-                >
+              <div key={id}>
+                <li className="flex gap-6 items-start py-2 px-1 flex-wrap">
                   <Image src={image} alt={description} width={64} height={64} />
                   <div className="flex flex-1 flex-col gap-2 ">
                     <p>{name}</p>
@@ -129,7 +133,7 @@ export function Cart() {
                   </div>
                 </li>
                 <hr className="w-full border-base-border" />
-              </>
+              </div>
             )
           },
         )}
@@ -163,13 +167,15 @@ export function Cart() {
         </div>
       ) : (
         <Link href="/success">
-          <button
-            type="button"
-            className="w-full bg-brand-yellow text-base font-bold py-3 rounded-lg text-base-white capitalize mt-3"
-            onClick={handleRemoveAllItemsInCart}
-          >
-            CONFIRMAR PEDIDO
-          </button>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <button
+              type="submit"
+              className="w-full bg-brand-yellow text-base font-bold py-3 rounded-lg text-base-white capitalize mt-3"
+              onClick={handleRemoveAllItemsInCart}
+            >
+              CONFIRMAR PEDIDO
+            </button>
+          </form>
         </Link>
       )}
     </Box>

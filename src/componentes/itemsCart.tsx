@@ -21,11 +21,8 @@ export function ItemsCart({ items }: { items: ProductCart[] }) {
         {Object.values(items).map(
           ({ id, image, description, name, price, amount }) => {
             return (
-              <>
-                <li
-                  key={id}
-                  className="flex gap-6 items-start py-2 px-1 flex-wrap"
-                >
+              <div key={id}>
+                <li className="flex gap-6 items-start py-2 px-1 flex-wrap">
                   <Image src={image} alt={description} width={64} height={64} />
                   <div className="flex flex-col flex-1 justify-end items-start">
                     <p>{name}</p>
@@ -41,7 +38,7 @@ export function ItemsCart({ items }: { items: ProductCart[] }) {
                   </div>
                 </li>
                 <hr className="w-full border-base-border " />
-              </>
+              </div>
             )
           },
         )}

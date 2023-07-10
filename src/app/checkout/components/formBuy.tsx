@@ -6,8 +6,10 @@ import Bank from '@/../public/assets/icons/Bank'
 import CreditCard from '@/../public/assets/icons/CreditCard'
 import Money from '@/../public/assets/icons/Money'
 import { useState } from 'react'
+import { useFormContext } from 'react-hook-form'
 
 export function FormBuy() {
+  const { register } = useFormContext()
   const [payForm, setPayForm] = useState('credit-card')
 
   function handleChangePayForm(type: string) {
@@ -26,48 +28,67 @@ export function FormBuy() {
         </div>
       </div>
       <div className="grid grid-cols-3 gap-2 mt-4">
-        <button
+        <input
+          type="radio"
+          value="debit-card"
+          {...register('payForm')}
+          className="hidden"
+        />
+        <label
           className={` ${
             payForm === 'debit-card'
               ? 'border border-brand-purple bg-brand-purple-light'
               : 'border'
           }
-          flex gap-3 items-center justify-center border  bg-base-button py-4 px-5 rounded-lg `}
+          flex gap-3 items-center justify-center border  bg-base-button py-4 px-5 rounded-lg cursor-pointer`}
           onClick={() => handleChangePayForm('debit-card')}
+          htmlFor="debit-card"
         >
           <Bank color="#8047F8" />
           <span className="text-base-text font-normal text-sm uppercase">
             cartão de débito
           </span>
-        </button>
-        <button
+        </label>
+        <input
+          type="radio"
+          value="credit-card"
+          {...register('payForm')}
+          className="hidden"
+        />
+        <label
           className={` ${
             payForm === 'credit-card'
               ? 'border border-brand-purple bg-brand-purple-light'
               : 'border'
           }
-          flex gap-3 items-center justify-center border  bg-base-button py-4 px-5 rounded-lg `}
+          flex gap-3 items-center justify-center border  bg-base-button py-4 px-5 rounded-lg cursor-pointer`}
           onClick={() => handleChangePayForm('credit-card')}
         >
           <CreditCard color="#8047F8" />
           <span className="text-base-text font-normal text-sm uppercase">
             cartão de crédito
           </span>
-        </button>
-        <button
+        </label>
+        <input
+          type="radio"
+          value="money"
+          {...register('payForm')}
+          className="hidden"
+        />
+        <label
           className={` ${
             payForm === 'money'
               ? 'border border-brand-purple bg-brand-purple-light'
               : 'border'
           }
-          flex gap-3 items-center justify-center border bg-base-button py-4 px-5 rounded-lg`}
+          flex gap-3 items-center justify-center border bg-base-button py-4 px-5 rounded-lg cursor-pointer`}
           onClick={() => handleChangePayForm('money')}
         >
           <Money color="#8047F8" />
           <span className="text-base-text font-normal text-sm  uppercase">
             dinheiro
           </span>
-        </button>
+        </label>
       </div>
     </Box>
   )
