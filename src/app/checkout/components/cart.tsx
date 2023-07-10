@@ -8,8 +8,30 @@ import Box from '../layout/box'
 import { convertCurrencyBRL } from '@/shared/utils/convertCurrencyBRL'
 import Link from 'next/link'
 import { useCart } from '@/hooks/useCart'
+import { useCallback, useEffect, useState } from 'react'
+import { api } from '@/services/api'
+
+interface StockProps {
+  id: string
+  amount: number
+}
 
 export function Cart() {
+  const [stock, setStock] = useState<StockProps[]>([])
+
+  const fetchData = useCallback(async () => {
+    try {
+      const stockRes = await api.get<StockProps[]>('/stock')
+      setStock(stockRes.data)
+    } catch (error) {
+      console.error(error)
+    }
+  }, [])
+
+  useEffect(() => {
+    fetchData()
+  }, [fetchData])
+
   const {
     state: { items },
     actions: { removeItem, updateAmount },
@@ -22,9 +44,8 @@ export function Cart() {
   )
 
   function checkStockItem(id: string, amount: number) {
-    // const stockItem = stock.find((item) => item.id === id)
-    // return stockItem ? stockItem.amount >= amount : false
-    return true
+    const stockItem = stock.find((item) => item.id === id)
+    return stockItem ? stockItem.amount >= amount : false
   }
 
   function handleUpdateItemInCart(id: string, newAmount: number) {
