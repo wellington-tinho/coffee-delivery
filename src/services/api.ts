@@ -9,11 +9,9 @@ if (process.env.NODE_ENV !== 'production') {
 
 export const api = axios.create({
   baseURL,
+  headers: {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*', // example to use cors
+    'Access-Control-Allow-Headers': '*', // example to use cors
+  },
 })
-
-api
-  .get('/')
-  .then((response) => console.info(response.data))
-  .catch((err) =>
-    console.warn('Não foi possivel se conectar com a API, \n\n', err),
-  )

@@ -8,7 +8,7 @@ export default function Success() {
   return (
     <>
       <Navbar />
-      <div className="px-40 bg-base-white flex gap-28 justify-center ">
+      <div className="px-40 mt-28 bg-base-white flex gap-28 justify-center ">
         <div className=" bg-base-white flex flex-col gap-1 p-4 w-">
           <div className="flex flex-col gap-2  ">
             <p className="text-3xl font-baloo text-brand-yellow-dark font-extrabold">

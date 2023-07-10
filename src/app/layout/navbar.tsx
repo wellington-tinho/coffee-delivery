@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <nav className="py-8 px-40 h-24 fixed w-full backdrop-blur-md ">
       <div className="flex justify-between  content-between">
-        <a className="" href="#">
+        <a className="" href="/">
           <Image src={LogoCoffeeDelivery} alt="logo" width={100} height={100} />
         </a>
         <div className="flex gap-3">

@@ -1,11 +1,16 @@
+'use client'
+
 import { Cart } from './components/cart'
 import { FormBuy } from './components/formBuy'
 import { FormLocation } from './components/formLocation'
 import Navbar from './layout/navbar'
+import { useForm, FormProvider } from 'react-hook-form'
 
 export default function Checkout() {
+  const methods = useForm() // initialize the hook form
+
   return (
-    <>
+    <FormProvider {...methods}>
       <Navbar />
       <div className="px-40 bg-base-white flex gap-8">
         <div className="w-4/6">
@@ -23,6 +28,6 @@ export default function Checkout() {
           <Cart />
         </div>
       </div>
-    </>
+    </FormProvider>
   )
 }

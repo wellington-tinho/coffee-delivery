@@ -1,8 +1,33 @@
 import Map from '@/../public/assets/icons/Map'
 import Box from '../layout/box'
 import { InputField } from './inputField'
+import { useFormContext } from 'react-hook-form'
+import { useCallback, useEffect } from 'react'
+import axios from 'axios'
 
 export function FormLocation() {
+  const { register, watch, reset } = useFormContext()
+  const cep = watch('cep', '00000000')
+
+  const handleSearchCep = useCallback(async () => {
+    if (cep.replace('-', '').length !== 8) return
+    const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`)
+    const data = response.data
+    if (data.erro) {
+      return
+    }
+    reset({
+      rua: data.logradouro,
+      bairro: data.bairro,
+      cidade: data.localidade,
+      estado: data.uf,
+    })
+  }, [cep])
+
+  useEffect(() => {
+    handleSearchCep()
+  }, [handleSearchCep])
+
   return (
     <Box>
       <div className="flex gap-3 items-start ">
@@ -20,59 +45,67 @@ export function FormLocation() {
       <form className="flex flex-col gap-4 mt-5">
         <InputField
           label="CEP"
-          name="cep"
           type="text"
           id="cep"
           placeholder="CEP"
           className="max-w-xs"
+          required
+          {...register('cep', { required: true, maxLength: 8, minLength: 8 })}
+          name="cep"
         />
         <InputField
           label="Rua"
-          name="rua"
           type="text"
           id="rua"
           placeholder="Rua"
+          {...register('rua', { required: true })}
+          name="rua"
         />
         <div className="flex gap-3">
           <InputField
             label="Número"
-            name="numero"
             type="text"
             id="numero"
             placeholder="Número"
             className="max-w-xs"
+            {...register('numero', { required: true })}
+            name="numero"
           />
           <InputField
             label="Complemento"
-            name="complemento"
             type="text"
             id="complemento"
             placeholder="Complemento"
+            {...register('complemento')}
+            name="complemento"
           />
         </div>
         <div className="flex gap-3">
           <InputField
             label="Bairro"
-            name="bairro"
             type="text"
             id="bairro"
             placeholder="Bairro"
             className="max-w-xs"
+            {...register('bairro', { required: true })}
+            name="bairro"
           />
           <InputField
             label="Cidade"
-            name="cidade"
             type="text"
             id="cidade"
             placeholder="Cidade"
+            {...register('cidade', { required: true })}
+            name="cidade"
           />
           <InputField
             label="Estado"
-            name="estado"
             type="text"
             id="estado"
             placeholder="UF"
             className="max-w-[60px]"
+            {...register('estado', { required: true })}
+            name="estado"
           />
         </div>
       </form>

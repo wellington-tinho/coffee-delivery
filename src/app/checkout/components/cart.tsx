@@ -36,6 +36,10 @@ export function Cart() {
     }
   }
 
+  function handleRemoveAllItemsInCart() {
+    Object.values(items).forEach(({ id }) => removeItem(id))
+  }
+
   return (
     <Box>
       <ul className="flex gap-6 flex-col ">
@@ -141,6 +145,7 @@ export function Cart() {
           <button
             type="button"
             className="w-full bg-brand-yellow text-base font-bold py-3 rounded-lg text-base-white capitalize mt-3"
+            onClick={handleRemoveAllItemsInCart}
           >
             CONFIRMAR PEDIDO
           </button>
