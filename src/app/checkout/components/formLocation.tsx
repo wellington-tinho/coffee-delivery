@@ -48,9 +48,9 @@ export function FormLocation() {
           type="text"
           id="cep"
           placeholder="CEP"
-          className="max-w-xs"
+          size="small"
           required
-          {...register('cep', { required: true, maxLength: 8, minLength: 8 })}
+          {...register('cep')}
           name="cep"
         />
         <InputField
@@ -58,7 +58,7 @@ export function FormLocation() {
           type="text"
           id="rua"
           placeholder="Rua"
-          {...register('rua', { required: true })}
+          {...register('rua')}
           name="rua"
         />
         <div className="flex gap-3">
@@ -67,8 +67,8 @@ export function FormLocation() {
             type="text"
             id="numero"
             placeholder="Número"
-            className="max-w-xs"
-            {...register('numero', { required: true })}
+            size="small"
+            {...register('numero')}
             name="numero"
           />
           <InputField
@@ -86,8 +86,8 @@ export function FormLocation() {
             type="text"
             id="bairro"
             placeholder="Bairro"
-            className="max-w-xs"
-            {...register('bairro', { required: true })}
+            size="small"
+            {...register('bairro')}
             name="bairro"
           />
           <InputField
@@ -95,7 +95,7 @@ export function FormLocation() {
             type="text"
             id="cidade"
             placeholder="Cidade"
-            {...register('cidade', { required: true })}
+            {...register('cidade')}
             name="cidade"
           />
           <InputField
@@ -103,8 +103,8 @@ export function FormLocation() {
             type="text"
             id="estado"
             placeholder="UF"
-            className="max-w-[60px]"
-            {...register('estado', { required: true })}
+            className="max-w-[60px]  bg-base-input border border-base-button px-3 rounded-md"
+            {...register('estado')}
             name="estado"
           />
         </div>

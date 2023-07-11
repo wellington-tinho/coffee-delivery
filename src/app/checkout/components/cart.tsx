@@ -166,17 +166,16 @@ export function Cart() {
           </p>
         </div>
       ) : (
-        <Link href="/success">
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <button
-              type="submit"
-              className="w-full bg-brand-yellow text-base font-bold py-3 rounded-lg text-base-white capitalize mt-3"
-              onClick={handleRemoveAllItemsInCart}
-            >
-              CONFIRMAR PEDIDO
-            </button>
-          </form>
-        </Link>
+        // <Link href="/success">
+        <button
+          type="submit"
+          className="w-full bg-brand-yellow text-base font-bold py-3 rounded-lg text-base-white capitalize mt-3"
+          // submi twhen handleSubmit
+          onClick={handleSubmit(onSubmit)}
+        >
+          CONFIRMAR PEDIDO
+        </button>
+        // </Link>
       )}
     </Box>
   )

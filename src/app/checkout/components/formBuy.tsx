@@ -7,6 +7,7 @@ import CreditCard from '@/../public/assets/icons/CreditCard'
 import Money from '@/../public/assets/icons/Money'
 import { useState } from 'react'
 import { useFormContext } from 'react-hook-form'
+import { InputField } from './inputField'
 
 export function FormBuy() {
   const { register } = useFormContext()
@@ -28,7 +29,10 @@ export function FormBuy() {
         </div>
       </div>
       <div className="grid grid-cols-3 gap-2 mt-4">
-        <input
+        <InputField
+          label={'debit-card'}
+          id={'debit-card'}
+          placeholder={''}
           type="radio"
           value="debit-card"
           {...register('payForm')}
@@ -49,7 +53,10 @@ export function FormBuy() {
             cartão de débito
           </span>
         </label>
-        <input
+        <InputField
+          label={'credit-card'}
+          id={'credit-card'}
+          placeholder={''}
           type="radio"
           value="credit-card"
           {...register('payForm')}
@@ -69,7 +76,10 @@ export function FormBuy() {
             cartão de crédito
           </span>
         </label>
-        <input
+        <InputField
+          label={'money'}
+          id={'money'}
+          placeholder={''}
           type="radio"
           value="money"
           {...register('payForm')}
