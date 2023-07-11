@@ -6,11 +6,12 @@ import sum from '@/../public/assets/icons/sum.svg'
 import Image from 'next/image'
 import Box from '../layout/box'
 import { convertCurrencyBRL } from '@/shared/utils/convertCurrencyBRL'
-import Link from 'next/link'
 import { useCart } from '@/hooks/useCart'
 import { useCallback, useEffect, useState } from 'react'
 import { api } from '@/services/api'
 import { useFormContext } from 'react-hook-form'
+import { useDataForm } from '@/hooks/useForm'
+import Link from 'next/link'
 
 interface StockProps {
   id: string
@@ -39,6 +40,10 @@ export function Cart() {
     actions: { removeItem, updateAmount },
   } = useCart()
 
+  const {
+    actions: { addItem },
+  } = useDataForm()
+
   const delivery = items.length > 0 ? 3.5 : 0
   const totalItens = Object.values(items).reduce(
     (acc, { price, amount }) => acc + price * amount,
@@ -63,9 +68,11 @@ export function Cart() {
     Object.values(items).forEach(({ id }) => removeItem(id))
   }
 
-  function onSubmit(data, e) {
-    console.log('🚀 ~ file: cart.tsx:67 ~ onSubmit ~ e:', e)
-    console.log('🚀 ~ file: cart.tsx:67 ~ onSubmit ~ data:', data)
+  function onSubmit(data: any, e: any) {
+    console.log('🚀 ~ file: cart.tsx:72 ~ onSubmit ~ data:', data)
+    addItem(data)
+    // handleRemoveAllItemsInCart()
+    window.location.href = '/success'
   }
 
   return (
@@ -166,16 +173,16 @@ export function Cart() {
           </p>
         </div>
       ) : (
-        // <Link href="/success">
-        <button
-          type="submit"
-          className="w-full bg-brand-yellow text-base font-bold py-3 rounded-lg text-base-white capitalize mt-3"
-          // submi twhen handleSubmit
-          onClick={handleSubmit(onSubmit)}
-        >
-          CONFIRMAR PEDIDO
-        </button>
-        // </Link>
+        <Link href="/success" passHref>
+          <button
+            type="submit"
+            className="w-full bg-brand-yellow text-base font-bold py-3 rounded-lg text-base-white capitalize mt-3"
+            // submi twhen handleSubmit
+            onClick={handleSubmit(onSubmit)}
+          >
+            CONFIRMAR PEDIDO
+          </button>
+        </Link>
       )}
     </Box>
   )

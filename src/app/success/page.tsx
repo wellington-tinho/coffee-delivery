@@ -1,10 +1,26 @@
+'use client'
+
 import Image from 'next/image'
 import Navbar from '../layout/navbar'
 import MapPin from '@/../public/assets/icons/Map'
 import Timer from '@/../public/assets/icons/Timer'
 import CurrencyDollar from '@/../public/assets/icons/CurrencyDollar'
+import { useDataForm } from '@/hooks/useForm'
 
 export default function Success() {
+  const {
+    state: { data },
+  } = useDataForm()
+  console.log('🚀 ~ file: page.tsx:14 ~ Success ~ items:', data)
+
+  const payFormLabel: {
+    [key: string]: string
+  } = {
+    credit_card: 'Cartão de crédito',
+    debit_card: 'Cartão de débito',
+    money: 'Dinheiro',
+  }
+
   return (
     <>
       <Navbar />
@@ -41,9 +57,15 @@ export default function Success() {
                 />
                 <div className="flex flex-col text-base-text text-base">
                   <span>
-                    Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
+                    {/* Entrega em <strong>Rua João Daniel Martinelli, 102</strong> */}
+                    Entrega em{' '}
+                    <strong>
+                      {data.rua}, {data.numero}
+                    </strong>
                   </span>
-                  <span>Farrapos - Picos, PI</span>
+                  <span>
+                    {data.bairro} - {data.cidade}, {data.estado}
+                  </span>
                 </div>
               </li>
 
@@ -74,7 +96,7 @@ export default function Success() {
                 />
                 <div className="flex flex-col text-base-text text-base">
                   <span>Pagamento na entrega</span>
-                  <strong>Cartão de Crédito</strong>
+                  <strong>{payFormLabel[data.payForm]} </strong>
                 </div>
               </li>
             </ul>
